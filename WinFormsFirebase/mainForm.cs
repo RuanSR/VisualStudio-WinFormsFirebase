@@ -36,5 +36,25 @@ namespace WinFormsFirebase
                 MessageBox.Show("Conexão estabelecida com o servidor!");
             }
         }
+
+        private async void BtnInsert_Click(object sender, EventArgs e)
+        {
+            var data = new Data
+            {
+                ID = txtID.Text,
+                Name = txtName.Text,
+                Email = txtEmail.Text
+            };
+
+            SetResponse response = await client.SetTaskAsync("Information/" + txtID.Text, data);
+            Data result = response.ResultAs<Data>();
+            MessageBox.Show("Inserido "+result.ID+" com sucesso!");
+        }
+
+        private async void BtnGet_Click(object sender, EventArgs e)
+        {
+            //FirebaseResponse response = await client.GetTaskAsync("Information/"+txtID.Text);
+            //Data obj = response.ResultAs<Data>
+        }
     }
 }
