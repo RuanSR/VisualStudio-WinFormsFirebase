@@ -40,22 +40,25 @@ namespace WinFormsFirebase
         {
             var data = new Data
             {
-                ID = txtID.Text,
-                Name = txtName.Text,
-                Email = txtEmail.Text
+                MicroName = txtMicroName.Text,
+                Status = txtStatus.Text,
+                Command = txtCommand.Text,
+                Complement = txtComplement.Text
             };
 
-            SetResponse response = await client.SetTaskAsync("Information/" + txtID.Text, data);
+            SetResponse response = await client.SetTaskAsync("Micro/" + txtMicroName.Text, data);
             Data result = response.ResultAs<Data>();
-            MessageBox.Show("Inserido "+result.ID+" com sucesso!");
+            MessageBox.Show("Inserido "+result.MicroName+" com sucesso!");
         }
         private async void BtnGet_Click(object sender, EventArgs e)
         {
-            FirebaseResponse response = await client.GetTaskAsync("Information/" + txtID.Text);
+            FirebaseResponse response = await client.GetTaskAsync("Micro/" + txtMicroName.Text);
             Data obj = response.ResultAs<Data>();
-            txtID.Text = obj.ID;
-            txtName.Text = obj.Name;
-            txtEmail.Text = obj.Email;
+            txtMicroName.Text = obj.MicroName;
+            txtStatus.Text = obj.Status;
+            txtCommand.Text = obj.Complement;
+            txtComplement.Text = obj.Complement;
+
 
             MessageBox.Show("Success!");
         }
@@ -63,14 +66,15 @@ namespace WinFormsFirebase
         {
             var data = new Data
             {
-                ID = txtID.Text,
-                Name = txtName.Text,
-                Email = txtEmail.Text
+                MicroName = txtMicroName.Text,
+                Status = txtStatus.Text,
+                Command = txtCommand.Text,
+                Complement = txtComplement.Text
             };
 
-            FirebaseResponse response = await client.UpdateTaskAsync("Information/" + txtID.Text, data);
+            FirebaseResponse response = await client.UpdateTaskAsync("Micro/" + txtMicroName.Text, data);
             Data result = response.ResultAs<Data>();
-            MessageBox.Show("Dados atualizados via ID: "+result.ID);
+            MessageBox.Show("Dados atualizados via ID: "+result.MicroName);
         }
     }
 }

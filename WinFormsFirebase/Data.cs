@@ -2,8 +2,10 @@
 {
     internal class Data
     {
-        public string ID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
+        public string MicroName { get; set; }
+        public string Status { get; set; }
+        public string Command { get; set; }
+        public string Complement { get; set; }
+
     }
 }
