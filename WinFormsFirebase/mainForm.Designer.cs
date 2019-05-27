@@ -30,23 +30,31 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDeleteAll = new System.Windows.Forms.Button();
             this.btnGet = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
+            this.txtComplement = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtCommand = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMicroName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtComplement = new System.Windows.Forms.TextBox();
+            this.bntGridView = new System.Windows.Forms.Button();
+            this.gridView = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.bntGridView);
             this.groupBox1.Controls.Add(this.btnUpdate);
+            this.groupBox1.Controls.Add(this.btnDeleteAll);
             this.groupBox1.Controls.Add(this.btnGet);
+            this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnInsert);
             this.groupBox1.Controls.Add(this.txtComplement);
             this.groupBox1.Controls.Add(this.label4);
@@ -66,7 +74,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(170, 270);
+            this.btnUpdate.Location = new System.Drawing.Point(231, 230);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 3;
@@ -74,9 +82,19 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
+            // btnDeleteAll
+            // 
+            this.btnDeleteAll.Location = new System.Drawing.Point(109, 270);
+            this.btnDeleteAll.Name = "btnDeleteAll";
+            this.btnDeleteAll.Size = new System.Drawing.Size(88, 23);
+            this.btnDeleteAll.TabIndex = 3;
+            this.btnDeleteAll.Text = "DELETE ALL";
+            this.btnDeleteAll.UseVisualStyleBackColor = true;
+            this.btnDeleteAll.Click += new System.EventHandler(this.BtnDeleteAll_Click);
+            // 
             // btnGet
             // 
-            this.btnGet.Location = new System.Drawing.Point(89, 270);
+            this.btnGet.Location = new System.Drawing.Point(116, 230);
             this.btnGet.Name = "btnGet";
             this.btnGet.Size = new System.Drawing.Size(75, 23);
             this.btnGet.TabIndex = 3;
@@ -84,15 +102,43 @@
             this.btnGet.UseVisualStyleBackColor = true;
             this.btnGet.Click += new System.EventHandler(this.BtnGet_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(6, 270);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(8, 270);
+            this.btnInsert.Location = new System.Drawing.Point(6, 230);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
             this.btnInsert.TabIndex = 3;
             this.btnInsert.Text = "INSERT";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.BtnInsert_Click);
+            // 
+            // txtComplement
+            // 
+            this.txtComplement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComplement.Location = new System.Drawing.Point(6, 198);
+            this.txtComplement.Name = "txtComplement";
+            this.txtComplement.Size = new System.Drawing.Size(306, 26);
+            this.txtComplement.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 175);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Complement";
             // 
             // txtCommand
             // 
@@ -148,35 +194,42 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "MicroName";
             // 
-            // label4
+            // bntGridView
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 175);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Complement";
+            this.bntGridView.Location = new System.Drawing.Point(231, 270);
+            this.bntGridView.Name = "bntGridView";
+            this.bntGridView.Size = new System.Drawing.Size(75, 23);
+            this.bntGridView.TabIndex = 3;
+            this.bntGridView.Text = "GRID VIEW";
+            this.bntGridView.UseVisualStyleBackColor = true;
+            this.bntGridView.Click += new System.EventHandler(this.BntGridView_Click);
             // 
-            // txtComplement
+            // gridView
             // 
-            this.txtComplement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComplement.Location = new System.Drawing.Point(6, 198);
-            this.txtComplement.Name = "txtComplement";
-            this.txtComplement.Size = new System.Drawing.Size(306, 26);
-            this.txtComplement.TabIndex = 2;
+            this.gridView.AllowUserToAddRows = false;
+            this.gridView.AllowUserToDeleteRows = false;
+            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridView.Location = new System.Drawing.Point(0, 299);
+            this.gridView.Name = "gridView";
+            this.gridView.ReadOnly = true;
+            this.gridView.RowHeadersVisible = false;
+            this.gridView.Size = new System.Drawing.Size(318, 198);
+            this.gridView.TabIndex = 1;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 311);
+            this.ClientSize = new System.Drawing.Size(318, 497);
+            this.Controls.Add(this.gridView);
             this.Controls.Add(this.groupBox1);
             this.Name = "mainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -195,6 +248,10 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtComplement;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnDeleteAll;
+        private System.Windows.Forms.Button bntGridView;
+        private System.Windows.Forms.DataGridView gridView;
     }
 }
 
